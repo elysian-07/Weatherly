@@ -1,0 +1,664 @@
+.comparison-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* View Toggle */
+.view-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.view-btn {
+    background: var(--card-bg);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.view-btn.active {
+    background: var(--primary-color);
+    transform: scale(1.05);
+}
+
+/* City Selection */
+.city-selection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.city-input {
+    display: flex;
+    gap: 0.5rem;
+    background: var(--card-bg);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    width: 300px;
+}
+
+.city-input input {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-size: 1rem;
+    width: 100%;
+}
+
+.city-input input::placeholder {
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.vs-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* Comparison Area */
+.comparison-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.comparison-area.overlay {
+    grid-template-columns: 1fr;
+}
+
+.city-card {
+    background: var(--card-bg);
+    border-radius: 1rem;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+}
+
+.city-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.city-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.weather-icon {
+    font-size: 2.5rem;
+    color: var(--text-color);
+}
+
+.weather-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.temperature {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.feels-like {
+    font-size: 1rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.description {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-color);
+}
+
+/* Charts Section */
+.charts-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.chart-container {
+    background: var(--card-bg);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--card-shadow);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .comparison-container {
+        padding: 20px;
+    }
+
+    .comparison-area {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .charts-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .city-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .comparison-container {
+        padding: 15px;
+    }
+
+    .city-selection {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .vs-text {
+        margin: 10px 0;
+    }
+
+    .city-card {
+        padding: 15px;
+    }
+
+    .charts-section {
+        grid-template-columns: 1fr;
+    }
+
+    .view-toggle {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .view-btn {
+        width: 100%;
+    }
+
+    .theme-controls {
+        position: static;
+        margin-bottom: 20px;
+    }
+
+    .theme-colors {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .theme-color {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .comparison-container {
+        padding: 10px;
+    }
+
+    .city-card {
+        padding: 10px;
+    }
+
+    .temperature {
+        font-size: 2rem;
+    }
+
+    .weather-icon i {
+        font-size: 2.5rem;
+    }
+
+    .details-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .chart-container {
+        padding: 10px;
+        height: 200px;
+    }
+
+    .card-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .weather-icon {
+        margin: 10px 0;
+    }
+
+    .detail-item {
+        padding: 8px;
+    }
+
+    .detail-item i {
+        font-size: 1rem;
+    }
+
+    .detail-item span {
+        font-size: 0.8rem;
+    }
+
+    .search-btn {
+        padding: 8px;
+    }
+
+    .theme-toggle {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Dark Mode Responsive Adjustments */
+@media (max-width: 768px) {
+    [data-theme="dark"] .city-card {
+        background: rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Animation Responsive Adjustments */
+@media (max-width: 768px) {
+    .weather-animation {
+        display: none;
+    }
+}
+
+/* Logo Responsive Adjustments */
+@media (max-width: 768px) {
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Navigation Responsive Adjustments */
+@media (max-width: 768px) {
+    .back-to-home-btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Chart Responsive Adjustments */
+@media (max-width: 480px) {
+    .chart-container {
+        height: 200px;
+    }
+}
+
+/* Animation for overlay view */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.city-card.overlay {
+    animation: slideIn 0.5s ease forwards;
+}
+
+/* Back to Home Button */
+.back-to-home-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+}
+
+.back-to-home-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: var(--card-bg);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: var(--card-shadow);
+}
+
+.back-to-home-btn:hover {
+    transform: translateX(-5px);
+    background: var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-home-btn i {
+    font-size: 1.2rem;
+}
+
+/* Theme Controls */
+.theme-controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    z-index: 1000;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+}
+
+.theme-toggle i {
+    position: absolute;
+    font-size: 1.2rem;
+    transition: opacity 0.3s;
+    color: var(--text-color);
+}
+
+.theme-toggle .dark-icon {
+    opacity: 0;
+}
+
+.theme-toggle .light-icon {
+    opacity: 1;
+}
+
+[data-theme="dark"] .theme-toggle .dark-icon {
+    opacity: 1;
+}
+
+[data-theme="dark"] .theme-toggle .light-icon {
+    opacity: 0;
+}
+
+.theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Theme Dropdown */
+.theme-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.theme-dropdown-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s;
+    color: var(--text-color);
+}
+
+.theme-dropdown-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme-dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    background-color: var(--card-bg);
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 10px;
+    z-index: 1;
+}
+
+.theme-dropdown:hover .theme-dropdown-content {
+    display: block;
+}
+
+.theme-option {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    color: var(--text-color);
+}
+
+.theme-option:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme-option.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Logo */
+.logo {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.logo h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 0;
+    padding: 0;
+}
+
+[data-theme="desert"] {
+    --primary-color: #f39c12;
+    --secondary-color: #d35400;
+    --text-color: #fff;
+    --card-bg: rgba(255, 255, 255, 0.15);
+    --card-shadow: 0 0 20px rgba(243, 156, 18, 0.2);
+}
+
+[data-theme="lavender"] {
+    --primary-color: #9b59b6;
+    --secondary-color: #8e44ad;
+    --text-color: #fff;
+    --card-bg: rgba(255, 255, 255, 0.15);
+    --card-shadow: 0 0 20px rgba(155, 89, 182, 0.2);
+}
+
+[data-theme="coral"] {
+    --primary-color: #ff7f50;
+    --secondary-color: #ff6347;
+    --text-color: #fff;
+    --card-bg: rgba(255, 255, 255, 0.15);
+    --card-shadow: 0 0 20px rgba(255, 127, 80, 0.2);
+}
+
+[data-theme="emerald"] {
+    --primary-color: #2ecc71;
+    --secondary-color: #27ae60;
+    --text-color: #fff;
+    --card-bg: rgba(255, 255, 255, 0.15);
+    --card-shadow: 0 0 20px rgba(46, 204, 113, 0.2);
+}
+
+[data-theme="sapphire"] {
+    --primary-color: #3498db;
+    --secondary-color: #2980b9;
+    --text-color: #fff;
+    --card-bg: rgba(255, 255, 255, 0.15);
+    --card-shadow: 0 0 20px rgba(52, 152, 219, 0.2);
+}
+
+[data-theme="ruby"] {
+    --primary-color: #e74c3c;
+    --secondary-color: #c0392b;
+    --text-color: #fff;
+    --card-bg: rgba(255, 255, 255, 0.15);
+    --card-shadow: 0 0 20px rgba(231, 76, 60, 0.2);
+}
+
+/* Theme Dropdown Styles */
+.theme-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.theme-dropdown-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.theme-dropdown-btn:hover {
+    background: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.theme-dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: var(--card-bg);
+    min-width: 200px;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    padding: 10px;
+    z-index: 1000;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.theme-dropdown:hover .theme-dropdown-content {
+    display: block;
+}
+
+.theme-option {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    margin: 4px 0;
+    background: transparent;
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.theme-option:hover {
+    background: var(--primary-color);
+}
+
+.theme-option.active {
+    background: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Scrollbar Styles for Dropdown */
+.theme-dropdown-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.theme-dropdown-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.theme-dropdown-content::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 3px;
+}
+
+/* Responsive Adjustments for Dropdown */
+@media (max-width: 768px) {
+    .theme-dropdown-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .theme-dropdown-content {
+        min-width: 180px;
+    }
+
+    .theme-option {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .theme-dropdown-btn {
+        padding: 4px 10px;
+    }
+
+    .theme-dropdown-content {
+        min-width: 160px;
+    }
+} 

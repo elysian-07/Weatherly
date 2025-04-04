@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo -->
+        <div class="logo">
+            <h1>Weatherly</h1>
+        </div>
+
+        <div class="theme-controls">
+            <button class="theme-toggle">
+                <i class="fas fa-moon dark-icon"></i>
+                <i class="fas fa-sun light-icon"></i>
+            </button>
+            <div class="theme-dropdown">
+                <button class="theme-dropdown-btn">
+                    <i class="fas fa-palette"></i>
+                    <span>Theme Colors</span>
+                </button>
+                <div class="theme-dropdown-content">
+                    <button class="theme-option" data-theme="default">Default</button>
+                    <button class="theme-option" data-theme="sunset">Sunset</button>
+                    <button class="theme-option" data-theme="night">Night</button>
+                    <button class="theme-option" data-theme="forest">Forest</button>
+                    <button class="theme-option" data-theme="ocean">Ocean</button>
+                    <button class="theme-option" data-theme="autumn">Autumn</button>
+                    <button class="theme-option" data-theme="spring">Spring</button>
+                    <button class="theme-option" data-theme="winter">Winter</button>
+                    <button class="theme-option" data-theme="desert">Desert</button>
+                    <button class="theme-option" data-theme="lavender">Lavender</button>
+                    <button class="theme-option" data-theme="coral">Coral</button>
+                    <button class="theme-option" data-theme="emerald">Emerald</button>
+                    <button class="theme-option" data-theme="sapphire">Sapphire</button>
+                    <button class="theme-option" data-theme="ruby">Ruby</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="weather-animation">
+            <div class="rain"></div>
+            <div class="snow"></div>
+            <div class="thunder"></div>
+        </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Enter city name" spellcheck="false">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        <div class="comparison-btn-container">
+            <a href="comparison.html" class="comparison-btn">
+                <i class="fas fa-balance-scale"></i>
+                Want to Compare Weather?
+            </a>
+        </div>
+        <div class="weather-box">
+            <div class="weather-details">
+                <div class="main-info">
+                    <div class="city-name">
+                        <h2></h2>
+                    </div>
+                    <div class="weather-icon">
+                        <i class="fas"></i>
+                    </div>
+                    <div class="temperature">
+                        <span class="temp-value"></span>
+                        <div class="temp-toggle">
+                            <button class="active" data-unit="celsius">°C</button>
+                            <button data-unit="fahrenheit">°F</button>
+                        </div>
+                    </div>
+                    <div class="feels-like">
+                        <span>Feels like: </span>
+                        <span class="feels-like-value"></span>
+                    </div>
+                    <div class="description"></div>
+                </div>
+                
+                <div class="additional-details">
+                    <div class="detail-row">
+                        <div class="detail-item">
+                            <i class="fas fa-tint"></i>
+                            <div class="text">
+                                <span class="humidity-value"></span>
+                                <p>Humidity</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-wind"></i>
+                            <div class="text">
+                                <span class="wind-value"></span>
+                                <p>Wind Speed</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <div class="detail-item">
+                            <i class="fas fa-compress-arrows-alt"></i>
+                            <div class="text">
+                                <span class="pressure-value"></span>
+                                <p>Pressure</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-temperature-low"></i>
+                            <div class="text">
+                                <span class="dew-point-value"></span>
+                                <p>Dew Point</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-row">
+                        <div class="detail-item">
+                            <i class="fas fa-sun"></i>
+                            <div class="text">
+                                <span class="uv-index-value"></span>
+                                <p>UV Index</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-compass"></i>
+                            <div class="text">
+                                <span class="wind-direction-value"></span>
+                                <p>Wind Direction</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sun-times">
+                    <div class="sun-time">
+                        <i class="fas fa-sunrise"></i>
+                        <span class="sunrise-time"></span>
+                        <p>Sunrise</p>
+                    </div>
+                    <div class="sun-time">
+                        <i class="fas fa-sunset"></i>
+                        <span class="sunset-time"></span>
+                        <p>Sunset</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hourly-forecast-card">
+            <div class="card-header">
+                <i class="fas fa-clock"></i>
+                <h3>Hourly Forecast</h3>
+            </div>
+            <div class="hourly-container">
+                <!-- Hourly forecast items will be added here dynamically -->
+            </div>
+        </div>
+
+        <div class="health-safety-card">
+            <h3>Health & Safety</h3>
+            <div class="uv-protection">
+                <div class="card-header">
+                    <i class="fas fa-sun"></i>
+                    <h4>UV Protection</h4>
+                </div>
+                <div class="uv-info">
+                    <span class="uv-level"></span>
+                    <p class="uv-advice"></p>
+                    <div class="sunscreen-tips">
+                        <i class="fas fa-info-circle"></i>
+                        <span class="sunscreen-level"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="air-quality">
+                <div class="card-header">
+                    <i class="fas fa-wind"></i>
+                    <h4>Air Quality</h4>
+                </div>
+                <div class="air-info">
+                    <span class="air-quality-level"></span>
+                    <p class="air-quality-advice"></p>
+                    <div class="allergy-alerts">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span class="allergy-info"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
