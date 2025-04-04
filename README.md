@@ -6,6 +6,12 @@ Built with **HTML**, **CSS**, and **JavaScript**, Weatherly is designed to be fa
 
 ---
 
+## 🔗 Live Demo
+
+👉 [https://weatherly-y8e5.onrender.com](https://weatherly-y8e5.onrender.com)
+
+---
+
 ## 📸 Features
 
 - 🔍 Search weather by city
