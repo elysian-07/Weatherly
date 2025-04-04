@@ -31,7 +31,7 @@ Built with **HTML**, **CSS**, and **JavaScript**, Weatherly is designed to be fa
 - JavaScript (ES6+)
 - Chart.js / Recharts (for weather graph)
 - OpenWeatherMap API (for weather data)
-- Tailwind CSS *(optional, if you're using it)*
+- Tailwind CSS 
 
 ---
 
